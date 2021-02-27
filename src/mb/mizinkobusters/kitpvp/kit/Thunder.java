@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.kit;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.EntityType;
@@ -23,10 +23,10 @@ public class Thunder implements Listener {
 		}
 
 		Player killer = player.getKiller();
-		if (!KitPvPUtils.isInWorld(killer)) {
+		if (!KitPvPUtil.isInWorld(killer)) {
 			return;
 		}
-		if (!KitPvPUtils.getKit(killer).equals("Thunder")) {
+		if (!KitPvPUtil.getKit(killer).equals("Thunder")) {
 			return;
 		}
 		killer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
@@ -40,7 +40,7 @@ public class Thunder implements Listener {
 		}
 
 		Player damagee = (Player) event.getEntity();
-		if (!KitPvPUtils.isInWorld(damagee)) {
+		if (!KitPvPUtil.isInWorld(damagee)) {
 			return;
 		}
 
@@ -49,7 +49,7 @@ public class Thunder implements Listener {
 		}
 
 		Player damager = (Player) event.getDamager();
-		if (!KitPvPUtils.getKit(damager).equals("Thunder")) {
+		if (!KitPvPUtil.getKit(damager).equals("Thunder")) {
 			return;
 		}
 

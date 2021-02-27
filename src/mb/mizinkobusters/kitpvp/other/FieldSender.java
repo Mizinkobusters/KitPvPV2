@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.other;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,13 +18,13 @@ public class FieldSender implements Listener {
     @EventHandler
     public void onStepPlate(PlayerInteractEvent event) {
         Player player = event.getPlayer();
-        if (!KitPvPUtils.isInWorld(player)) {
+        if (!KitPvPUtil.isInWorld(player)) {
             return;
         }
         if (!event.getAction().equals(Action.PHYSICAL)) {
             return;
         }
-        if (!KitPvPUtils.hasKit(player)) {
+        if (!KitPvPUtil.hasKit(player)) {
             player.sendMessage(prefix + "§cKitを選択してください");
             return;
         }

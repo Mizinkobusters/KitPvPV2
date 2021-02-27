@@ -1,7 +1,7 @@
 package mb.mizinkobusters.kitpvp.kit;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
-import mb.mizinkobusters.kitpvp.utils.PlayerSalvationUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
+import mb.mizinkobusters.kitpvp.utils.PlayerUtil;
 import org.bukkit.Sound;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -24,13 +24,13 @@ public class Blizzard implements Listener {
         }
 
         Player killer = player.getKiller();
-        if (!KitPvPUtils.isInWorld(killer)) {
+        if (!KitPvPUtil.isInWorld(killer)) {
             return;
         }
-        if (!KitPvPUtils.getKit(killer).equals("Blizzard")) {
+        if (!KitPvPUtil.getKit(killer).equals("Blizzard")) {
             return;
         }
-        PlayerSalvationUtils.heal(player);
+        PlayerUtil.heal(player);
     }
 
     @EventHandler
@@ -40,7 +40,7 @@ public class Blizzard implements Listener {
         }
 
         Player damagee = (Player) event.getEntity();
-        if (!KitPvPUtils.isInWorld(damagee)) {
+        if (!KitPvPUtil.isInWorld(damagee)) {
             return;
         }
 
@@ -48,7 +48,7 @@ public class Blizzard implements Listener {
             return;
         }
         Player damager = (Player) event.getDamager();
-        if (!KitPvPUtils.getKit(damager).equals("Blizzard")) {
+        if (!KitPvPUtil.getKit(damager).equals("Blizzard")) {
             return;
         }
 

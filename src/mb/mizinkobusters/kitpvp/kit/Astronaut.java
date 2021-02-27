@@ -1,7 +1,7 @@
 package mb.mizinkobusters.kitpvp.kit;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
-import mb.mizinkobusters.kitpvp.utils.PlayerSalvationUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
+import mb.mizinkobusters.kitpvp.utils.PlayerUtil;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,13 +19,13 @@ public class Astronaut implements Listener {
         }
 
         Player killer = player.getKiller();
-        if (!KitPvPUtils.isInWorld(killer)) {
+        if (!KitPvPUtil.isInWorld(killer)) {
             return;
         }
-        if (!KitPvPUtils.getKit(killer).equals("Astronaut")) {
+        if (!KitPvPUtil.getKit(killer).equals("Astronaut")) {
             return;
         }
-        PlayerSalvationUtils.heal(player);
+        PlayerUtil.heal(player);
     }
 
     @EventHandler
@@ -35,7 +35,7 @@ public class Astronaut implements Listener {
         }
 
         Player player = (Player) event.getEntity();
-        if (!KitPvPUtils.getKit(player).equals("Astronaut")) {
+        if (!KitPvPUtil.getKit(player).equals("Astronaut")) {
             return;
         }
 

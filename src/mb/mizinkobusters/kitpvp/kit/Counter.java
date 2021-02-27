@@ -1,7 +1,7 @@
 package mb.mizinkobusters.kitpvp.kit;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
-import mb.mizinkobusters.kitpvp.utils.PlayerSalvationUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
+import mb.mizinkobusters.kitpvp.utils.PlayerUtil;
 import org.bukkit.Sound;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.EntityType;
@@ -23,13 +23,13 @@ public class Counter implements Listener {
         }
 
         Player killer = player.getKiller();
-        if (!KitPvPUtils.isInWorld(killer)) {
+        if (!KitPvPUtil.isInWorld(killer)) {
             return;
         }
-        if (!KitPvPUtils.getKit(killer).equals("Counter")) {
+        if (!KitPvPUtil.getKit(killer).equals("Counter")) {
             return;
         }
-        PlayerSalvationUtils.heal(player);
+        PlayerUtil.heal(player);
     }
 
     @EventHandler
@@ -39,10 +39,10 @@ public class Counter implements Listener {
         }
 
         Player damagee = (Player) event.getEntity();
-        if (!KitPvPUtils.isInWorld(damagee)) {
+        if (!KitPvPUtil.isInWorld(damagee)) {
             return;
         }
-        if (!KitPvPUtils.getKit(damagee).equals("Counter")) {
+        if (!KitPvPUtil.getKit(damagee).equals("Counter")) {
             return;
         }
 

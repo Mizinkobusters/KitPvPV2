@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.kit;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
@@ -22,11 +22,11 @@ public class Standard implements Listener {
         }
 
         Player killer = player.getKiller();
-        if (!KitPvPUtils.isInWorld(killer)) {
+        if (!KitPvPUtil.isInWorld(killer)) {
             return;
         }
 
-        if (!KitPvPUtils.getKit(killer).equals("Standard")) {
+        if (!KitPvPUtil.getKit(killer).equals("Standard")) {
             return;
         }
         killer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
@@ -36,10 +36,10 @@ public class Standard implements Listener {
     @EventHandler
     public void onEatGapple(PlayerItemConsumeEvent event) {
         Player player = event.getPlayer();
-        if (!KitPvPUtils.isInWorld(player)) {
+        if (!KitPvPUtil.isInWorld(player)) {
             return;
         }
-        if (!KitPvPUtils.getKit(player).equals("Standard")) {
+        if (!KitPvPUtil.getKit(player).equals("Standard")) {
             return;
         }
 

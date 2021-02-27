@@ -1,8 +1,8 @@
 package mb.mizinkobusters.kitpvp.listener;
 
 import mb.mizinkobusters.kitpvp.Main;
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
-import mb.mizinkobusters.kitpvp.utils.PlayerSalvationUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
+import mb.mizinkobusters.kitpvp.utils.PlayerUtil;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -28,10 +28,10 @@ public class PlayerRespawnListener implements Listener {
     @EventHandler
     public void onSneak(PlayerToggleSneakEvent event) {
         Player player = event.getPlayer();
-        if (!KitPvPUtils.isInWorld(player)) {
+        if (!KitPvPUtil.isInWorld(player)) {
             return;
         }
-        if (!KitPvPUtils.hasKit(player)) {
+        if (!KitPvPUtil.hasKit(player)) {
             return;
         }
 
@@ -67,7 +67,7 @@ public class PlayerRespawnListener implements Listener {
                         player.teleport(new Location(player.getWorld(), 0.5, 11.0, 0.5, 0, 0), PlayerTeleportEvent.TeleportCause.PLUGIN);
 
                         player.removeMetadata("respawning", plugin);
-                        PlayerSalvationUtils.salvage(player);
+                        PlayerUtil.salvage(player);
                         player.sendMessage(prefix + "§aリスポーンに成功しました");
                     }
                 }
@@ -78,10 +78,10 @@ public class PlayerRespawnListener implements Listener {
     @EventHandler
     public void onMove(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        if (!KitPvPUtils.isInWorld(player)) {
+        if (!KitPvPUtil.isInWorld(player)) {
             return;
         }
-        if (!KitPvPUtils.hasKit(player)) {
+        if (!KitPvPUtil.hasKit(player)) {
             return;
         }
 

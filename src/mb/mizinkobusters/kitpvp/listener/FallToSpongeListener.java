@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.listener;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -20,7 +20,7 @@ public class FallToSpongeListener implements Listener {
     @EventHandler
     public void onFallToSponge(EntityDamageEvent event) {
         Player player = (Player) event.getEntity();
-        if (!KitPvPUtils.isInWorld(player)) {
+        if (!KitPvPUtil.isInWorld(player)) {
             return;
         }
         if (!event.getCause().equals(EntityDamageEvent.DamageCause.FALL)) {
@@ -32,7 +32,7 @@ public class FallToSpongeListener implements Listener {
             return;
         }
 
-        if (!KitPvPUtils.hasKit(player)) {
+        if (!KitPvPUtil.hasKit(player)) {
             player.sendMessage(prefix + "§cKitを選択してください");
             player.teleport(new Location(player.getWorld(), 0.5, 11.0, 0.5, 0, 0), PlayerTeleportEvent.TeleportCause.PLUGIN);
         } else {

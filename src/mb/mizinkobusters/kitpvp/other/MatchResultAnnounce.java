@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.other;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -25,7 +25,7 @@ public class MatchResultAnnounce implements Listener {
     public void onDeath(PlayerRespawnEvent event) {
         Player dead = event.getPlayer();
 
-        if (!KitPvPUtils.isInWorld(dead)) {
+        if (!KitPvPUtil.isInWorld(dead)) {
             return;
         }
 
@@ -45,7 +45,7 @@ public class MatchResultAnnounce implements Listener {
 
             dead.sendMessage(prefix + "§d---------<< マッチリザルト >>---------");
             dead.sendMessage(prefix + "§7キラー: §e" + dead.getKiller().getName() + " §c(♥ " + String.format("%.1f", d) + ")");
-            dead.sendMessage(prefix + "§7使用Kit: §e" + KitPvPUtils.getKit(dead.getKiller()));
+            dead.sendMessage(prefix + "§7使用Kit: §e" + KitPvPUtil.getKit(dead.getKiller()));
             dead.sendMessage(prefix + "§c§lキラーを不正なプレイヤーとして通報する§7(未実装)");
         } else {
             dead.sendMessage(prefix + "§d---------<< マッチリザルト >>---------");
@@ -56,8 +56,8 @@ public class MatchResultAnnounce implements Listener {
         int rating = config.getInt("KitPvP.Rating");
 
         dead.sendMessage(prefix + "§d---------<< あなたのスコア >>---------");
-        dead.sendMessage(prefix + "§7キルストリーク: §e" + KitPvPUtils.getStreak(dead));
-        dead.sendMessage(prefix + "§7所持していた金のリンゴの数: §e" + KitPvPUtils.getGapple(dead));
+        dead.sendMessage(prefix + "§7キルストリーク: §e" + KitPvPUtil.getStreak(dead));
+        dead.sendMessage(prefix + "§7所持していた金のリンゴの数: §e" + KitPvPUtil.getGapple(dead));
         dead.sendMessage(prefix + "§7最終レーティング: §e" + rating);
         dead.sendMessage(prefix + "§d---------------------------------------");
 

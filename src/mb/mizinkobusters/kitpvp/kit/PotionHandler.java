@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.kit;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
@@ -27,7 +27,7 @@ public class PotionHandler implements Listener {
             return;
         }
 
-        if (!KitPvPUtils.getKit(killer).equals("PotionHandler")) {
+        if (!KitPvPUtil.getKit(killer).equals("PotionHandler")) {
             return;
         }
         killer.sendMessage("§cこのKitではキル時に金のリンゴを獲得できません");

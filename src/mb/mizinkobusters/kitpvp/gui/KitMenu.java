@@ -4,7 +4,7 @@ import amata1219.niflheimr.dsl.InventoryLayout;
 import amata1219.niflheimr.dsl.InventoryUI;
 import amata1219.niflheimr.dsl.component.format.InventoryLines;
 import mb.mizinkobusters.kitpvp.other.ArmorGiver;
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
@@ -85,7 +85,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(new ItemStack(Material.ARROW));
                     viewer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
 
-                    KitPvPUtils.setKit(viewer, "Archer");
+                    KitPvPUtil.setKit(viewer, "Archer");
                     viewer.sendMessage(prefix + "§aArcher Kitを選択しました");
                 });
             }, 0);
@@ -116,7 +116,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 1000000, 2, false, false));
                     viewer.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 1000000, 1, false, false));
 
-                    KitPvPUtils.setKit(viewer, "Astronaut");
+                    KitPvPUtil.setKit(viewer, "Astronaut");
                     viewer.sendMessage(prefix + "§aAstronaut Kitを選択しました");
                 });
             }, 1);
@@ -151,7 +151,7 @@ public class KitMenu implements InventoryUI, Listener {
 
                     viewer.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 1000000, 0, false, false));
 
-                    KitPvPUtils.setKit(viewer, "Berserker");
+                    KitPvPUtil.setKit(viewer, "Berserker");
                     viewer.sendMessage(prefix + "§aBerserker Kitを選択しました");
                 });
             }, 2);
@@ -177,7 +177,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
                     viewer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
 
-                    KitPvPUtils.setKit(viewer, "Blizzard");
+                    KitPvPUtil.setKit(viewer, "Blizzard");
                     viewer.sendMessage(prefix + "§aBlizzard Kitを選択しました");
                 });
             }, 3);
@@ -205,7 +205,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(sword);
                     viewer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 2));
 
-                    KitPvPUtils.setKit(viewer, "Boxer");
+                    KitPvPUtil.setKit(viewer, "Boxer");
                     viewer.sendMessage(prefix + "§aBoxer Kitを選択しました");
                 });
             }, 4);
@@ -258,7 +258,7 @@ public class KitMenu implements InventoryUI, Listener {
 
                     viewer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000000, 2, false, false));
 
-                    KitPvPUtils.setKit(viewer, "Comet");
+                    KitPvPUtil.setKit(viewer, "Comet");
                     viewer.sendMessage(prefix + "§aComet Kitを選択しました");
                 });
             }, 5);
@@ -285,7 +285,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(new ItemStack(Material.STONE_SWORD));
                     viewer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
 
-                    KitPvPUtils.setKit(viewer, "Counter");
+                    KitPvPUtil.setKit(viewer, "Counter");
                     viewer.sendMessage(prefix + "§aCounter Kitを選択しました");
                 });
             }, 6);
@@ -312,7 +312,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(new ItemStack(Material.FISHING_ROD));
                     viewer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
 
-                    KitPvPUtils.setKit(viewer, "Fighter");
+                    KitPvPUtil.setKit(viewer, "Fighter");
                     viewer.sendMessage(prefix + "§aFighter Kitを選択しました");
                 });
             }, 7);
@@ -340,7 +340,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(new ItemStack(Material.FISHING_ROD));
                     viewer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
 
-                    KitPvPUtils.setKit(viewer, "Fisherman");
+                    KitPvPUtil.setKit(viewer, "Fisherman");
                     viewer.sendMessage(prefix + "§aFisherman Kitを選択しました");
                 });
             }, 8);
@@ -376,7 +376,7 @@ public class KitMenu implements InventoryUI, Listener {
 
                     viewer.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 1000000, 2, false, false));
 
-                    KitPvPUtils.setKit(viewer, "Flame");
+                    KitPvPUtil.setKit(viewer, "Flame");
                     viewer.sendMessage(prefix + "§aFlame Kitを選択しました");
                 });
             }, 9);
@@ -405,7 +405,7 @@ public class KitMenu implements InventoryUI, Listener {
 
                     viewer.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(18.0);
 
-                    KitPvPUtils.setKit(viewer, "HealthBoost");
+                    KitPvPUtil.setKit(viewer, "HealthBoost");
                     viewer.sendMessage(prefix + "§aHealthBoost Kitを選択しました");
                 });
             }, 10);
@@ -441,7 +441,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(new ItemStack(Material.POTION, 2, (short) 16396));
                     viewer.getInventory().addItem(new ItemStack(Material.POTION, 2, (short) 16388));
 
-                    KitPvPUtils.setKit(viewer, "PotionHandler");
+                    KitPvPUtil.setKit(viewer, "PotionHandler");
                     viewer.sendMessage(prefix + "§aPotionHandler Kitを選択しました");
                 });
             }, 11);
@@ -471,7 +471,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 1000000, 1, false, false));
                     viewer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 1000000, 1, false, false));
 
-                    KitPvPUtils.setKit(viewer, "Rabbit");
+                    KitPvPUtil.setKit(viewer, "Rabbit");
                     viewer.sendMessage(prefix + "§aRabbit Kitを選択しました");
                 });
             }, 12);
@@ -503,7 +503,7 @@ public class KitMenu implements InventoryUI, Listener {
 
                     viewer.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
 
-                    KitPvPUtils.setKit(viewer, "Revive");
+                    KitPvPUtil.setKit(viewer, "Revive");
                     viewer.sendMessage(prefix + "§aRevive Kitを選択しました");
                 });
             }, 13);
@@ -539,7 +539,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(new ItemStack(Material.ARROW));
                     viewer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
 
-                    KitPvPUtils.setKit(viewer, "Sniper");
+                    KitPvPUtil.setKit(viewer, "Sniper");
                     viewer.sendMessage(prefix + "§aSniper Kitを選択しました");
                 });
             }, 14);
@@ -565,7 +565,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
                     viewer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
 
-                    KitPvPUtils.setKit(viewer, "Standard");
+                    KitPvPUtil.setKit(viewer, "Standard");
                     viewer.sendMessage(prefix + "§aStandard Kitを選択しました");
                 });
             }, 15);
@@ -595,7 +595,7 @@ public class KitMenu implements InventoryUI, Listener {
 
                     viewer.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 1000000, 0, false, false));
 
-                    KitPvPUtils.setKit(viewer, "Tank");
+                    KitPvPUtil.setKit(viewer, "Tank");
                     viewer.sendMessage(prefix + "§aTank Kitを選択しました");
                 });
             }, 16);
@@ -623,7 +623,7 @@ public class KitMenu implements InventoryUI, Listener {
                     viewer.getInventory().addItem(sword);
                     viewer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 2));
 
-                    KitPvPUtils.setKit(viewer, "Thunder");
+                    KitPvPUtil.setKit(viewer, "Thunder");
                     viewer.sendMessage(prefix + "§aThunder Kitを選択しました");
                 });
             }, 17);

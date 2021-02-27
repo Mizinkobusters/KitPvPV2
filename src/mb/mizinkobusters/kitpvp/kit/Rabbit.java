@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.kit;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
@@ -19,10 +19,10 @@ public class Rabbit implements Listener {
         }
 
         Player killer = player.getKiller();
-        if (!KitPvPUtils.isInWorld(killer)) {
+        if (!KitPvPUtil.isInWorld(killer)) {
             return;
         }
-        if (!KitPvPUtils.getKit(killer).equals("Rabbit")) {
+        if (!KitPvPUtil.getKit(killer).equals("Rabbit")) {
             return;
         }
         killer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));

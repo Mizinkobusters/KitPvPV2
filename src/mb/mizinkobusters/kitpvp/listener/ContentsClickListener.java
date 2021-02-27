@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.listener;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,10 +18,10 @@ public class ContentsClickListener implements Listener {
         if (!player.getGameMode().equals(GameMode.CREATIVE)) {
             return;
         }
-        if (!KitPvPUtils.isInWorld(player)) {
+        if (!KitPvPUtil.isInWorld(player)) {
             return;
         }
-        if (!KitPvPUtils.hasKit(player)) {
+        if (!KitPvPUtil.hasKit(player)) {
             event.setCancelled(true);
         }
 

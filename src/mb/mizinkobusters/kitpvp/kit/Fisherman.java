@@ -1,7 +1,7 @@
 package mb.mizinkobusters.kitpvp.kit;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
-import mb.mizinkobusters.kitpvp.utils.PlayerSalvationUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
+import mb.mizinkobusters.kitpvp.utils.PlayerUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Sound;
@@ -23,22 +23,22 @@ public class Fisherman implements Listener {
         }
 
         Player killer = player.getKiller();
-        if (!KitPvPUtils.isInWorld(killer)) {
+        if (!KitPvPUtil.isInWorld(killer)) {
             return;
         }
-        if (!KitPvPUtils.getKit(killer).equals("Fisherman")) {
+        if (!KitPvPUtil.getKit(killer).equals("Fisherman")) {
             return;
         }
-        PlayerSalvationUtils.heal(player);
+        PlayerUtil.heal(player);
     }
 
     @EventHandler
     public void onFish(PlayerFishEvent event) {
         Player player = event.getPlayer();
-        if (!KitPvPUtils.isInWorld(player)) {
+        if (!KitPvPUtil.isInWorld(player)) {
             return;
         }
-        if (!KitPvPUtils.getKit(player).equals("Fisherman")) {
+        if (!KitPvPUtil.getKit(player).equals("Fisherman")) {
             return;
         }
 

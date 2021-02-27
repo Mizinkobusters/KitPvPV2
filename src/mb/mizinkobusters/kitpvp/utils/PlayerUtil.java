@@ -7,7 +7,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.util.Vector;
 
-public class PlayerSalvationUtils {
+public class PlayerUtil {
 
     public static void salvage(Player player) {
         player.setVelocity(new Vector());
@@ -15,7 +15,7 @@ public class PlayerSalvationUtils {
         player.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(20.0);
         player.getActivePotionEffects().stream().map(PotionEffect::getType).forEach(player::removePotionEffect);
 
-        KitPvPUtils.resetKit(player);
+        KitPvPUtil.resetKit(player);
     }
 
     public static void heal(Player player) {

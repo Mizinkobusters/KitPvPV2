@@ -10,7 +10,7 @@ import org.bukkit.inventory.PlayerInventory;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class KitPvPUtils implements Listener {
+public class KitPvPUtil implements Listener {
 
     public static HashMap<UUID, String> kit = new HashMap<>();
     public static HashMap<UUID, Integer> streak = new HashMap<>();

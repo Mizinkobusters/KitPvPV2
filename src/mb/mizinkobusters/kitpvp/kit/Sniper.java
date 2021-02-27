@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.kit;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Arrow;
@@ -22,10 +22,10 @@ public class Sniper implements Listener {
         }
 
         Player killer = player.getKiller();
-        if (!KitPvPUtils.isInWorld(killer)) {
+        if (!KitPvPUtil.isInWorld(killer)) {
             return;
         }
-        if (!KitPvPUtils.getKit(killer).equals("Sniper")) {
+        if (!KitPvPUtil.getKit(killer).equals("Sniper")) {
             return;
         }
         killer.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
@@ -39,7 +39,7 @@ public class Sniper implements Listener {
         }
 
         Player damagee = (Player) event.getEntity();
-        if (!KitPvPUtils.isInWorld(damagee)) {
+        if (!KitPvPUtil.isInWorld(damagee)) {
             return;
         }
         if (!event.getDamager().getType().equals(EntityType.ARROW)) {
@@ -49,7 +49,7 @@ public class Sniper implements Listener {
         Arrow arrow = (Arrow) event.getDamager();
         Player shooter = (Player) arrow.getShooter();
 
-        if (!KitPvPUtils.getKit(shooter).equals("Sniper")) {
+        if (!KitPvPUtil.getKit(shooter).equals("Sniper")) {
             return;
         }
 

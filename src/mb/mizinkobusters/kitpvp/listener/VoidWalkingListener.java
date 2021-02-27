@@ -1,6 +1,6 @@
 package mb.mizinkobusters.kitpvp.listener;
 
-import mb.mizinkobusters.kitpvp.utils.KitPvPUtils;
+import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,10 +17,10 @@ public class VoidWalkingListener implements Listener {
     @EventHandler
     public void onWalk(PlayerMoveEvent event) {
         Player player = event.getPlayer();
-        if (KitPvPUtils.isInWorld(player)) {
+        if (KitPvPUtil.isInWorld(player)) {
             return;
         }
-        if (!KitPvPUtils.hasKit(player)) {
+        if (!KitPvPUtil.hasKit(player)) {
             return;
         }
 
