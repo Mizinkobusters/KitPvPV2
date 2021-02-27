@@ -3,9 +3,7 @@ package mb.mizinkobusters.kitpvp;
 import mb.mizinkobusters.kitpvp.gui.KitMenu;
 import mb.mizinkobusters.kitpvp.gui.KitPurchaseMenu;
 import mb.mizinkobusters.kitpvp.kit.*;
-import mb.mizinkobusters.kitpvp.listener.PlayerDeathListener;
-import mb.mizinkobusters.kitpvp.listener.PlayerRespawnListener;
-import mb.mizinkobusters.kitpvp.listener.VoidWalkingListener;
+import mb.mizinkobusters.kitpvp.listener.*;
 import mb.mizinkobusters.kitpvp.other.ArrowsRemover;
 import mb.mizinkobusters.kitpvp.other.FieldSender;
 import mb.mizinkobusters.kitpvp.other.MatchResultAnnounce;
@@ -22,6 +20,8 @@ public class Main extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(new KitMenu(), this);
         Bukkit.getPluginManager().registerEvents(new KitPurchaseMenu(), this);
 
+        Bukkit.getPluginManager().registerEvents(new ContentsClickListener(), this);
+        Bukkit.getPluginManager().registerEvents(new FallToSpongeListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerDeathListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerRespawnListener(this), this);
         Bukkit.getPluginManager().registerEvents(new VoidWalkingListener(), this);
