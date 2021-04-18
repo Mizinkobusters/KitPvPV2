@@ -2,7 +2,7 @@
 [![](https://discordapp.com/api/guilds/357134045328572418/widget.png)](https://discord.gg/seheC2W)
 
 # KitPvPV2
-LeafPvPサーバー用に制作したKitPvPプラグイン。
+AsterPvPサーバー用に制作したKitPvPプラグイン。
 
 ## 概要
 
