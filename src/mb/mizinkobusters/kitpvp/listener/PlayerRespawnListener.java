@@ -8,6 +8,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
@@ -44,7 +45,6 @@ public class PlayerRespawnListener implements Listener {
         if (event.isSneaking()
                 && !player.hasMetadata("respawning")) {
             player.setMetadata("respawning", new FixedMetadataValue(plugin, this));
-
             player.sendMessage(prefix + "§aリスポーンを申請しました");
             player.sendMessage(prefix + "§e8秒間§7その場から動かないでください...");
 
@@ -98,5 +98,21 @@ public class PlayerRespawnListener implements Listener {
 
         player.removeMetadata("respawning", plugin);
         player.sendMessage(prefix + "§eその場から動いたためリスポーンをキャンセルしました");
+    }
+
+    @EventHandler
+    public void onDeath(PlayerDeathEvent event) {
+        Player player = event.getEntity();
+        if (!KitPvPUtil.isInWorld(player)) {
+            return;
+        }
+        if (!KitPvPUtil.hasKit(player)) {
+            return;
+        }
+
+        if (!player.hasMetadata("respawning")) {
+            return;
+        }
+        player.removeMetadata("respawning", plugin);
     }
 }
