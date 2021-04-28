@@ -19,7 +19,7 @@ public class PlayerUtil {
     }
 
     public static void heal(Player player) {
-        player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
-        player.setHealth(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+        player.getKiller().getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
+        player.getKiller().setHealth(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
     }
 }
