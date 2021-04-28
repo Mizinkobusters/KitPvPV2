@@ -1,11 +1,13 @@
 package mb.mizinkobusters.kitpvp;
 
+import mb.mizinkobusters.kitpvp.command.Spec;
 import mb.mizinkobusters.kitpvp.gui.KitMenu;
 import mb.mizinkobusters.kitpvp.gui.KitPurchaseMenu;
 import mb.mizinkobusters.kitpvp.kit.*;
 import mb.mizinkobusters.kitpvp.listener.*;
 import mb.mizinkobusters.kitpvp.other.ArrowsRemover;
 import mb.mizinkobusters.kitpvp.other.FieldSender;
+import mb.mizinkobusters.kitpvp.other.FishingCanceller;
 import mb.mizinkobusters.kitpvp.other.MatchResultAnnounce;
 import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
 import org.bukkit.Bukkit;
@@ -17,14 +19,17 @@ import java.util.List;
 public class Main extends JavaPlugin implements Listener {
 
     public void onEnable() {
+        Bukkit.getPluginCommand("Spec").setExecutor(new Spec());
+
         Bukkit.getPluginManager().registerEvents(new KitMenu(), this);
         Bukkit.getPluginManager().registerEvents(new KitPurchaseMenu(), this);
 
         Bukkit.getPluginManager().registerEvents(new ContentsClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new FallToSpongeListener(), this);
+        Bukkit.getPluginManager().registerEvents(new FallToVoidListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerDeathListener(), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new PlayerRespawnListener(this), this);
-        Bukkit.getPluginManager().registerEvents(new VoidWalkingListener(), this);
 
         Bukkit.getPluginManager().registerEvents(new Archer(), this);
         Bukkit.getPluginManager().registerEvents(new Astronaut(), this);
@@ -47,6 +52,7 @@ public class Main extends JavaPlugin implements Listener {
 
         Bukkit.getPluginManager().registerEvents(new ArrowsRemover(), this);
         Bukkit.getPluginManager().registerEvents(new FieldSender(), this);
+        Bukkit.getPluginManager().registerEvents(new FishingCanceller(), this);
         Bukkit.getPluginManager().registerEvents(new MatchResultAnnounce(), this);
 
         Bukkit.getPluginManager().registerEvents(new KitPvPUtil(), this);
