@@ -29,17 +29,16 @@ public class MatchResultAnnounce implements Listener {
             return;
         }
 
-        Plugin pl = Bukkit.getPluginManager().getPlugin("LeafPvPLogger");
-        File plfolder = new File(pl.getDataFolder().getPath());
+        Plugin plugin = Bukkit.getPluginManager().getPlugin("LeafPvPLogger");
 
         String uuid = dead.getUniqueId().toString();
-        File file = new File(plfolder.getPath() + "/season/beta/" + uuid + ".yml");
+        File file = new File(plugin.getDataFolder().getPath() + File.separator + uuid + ".yml");
         if (!file.exists()) {
             return;
         }
 
         // dead側リザルト通知
-        if (dead.getKiller() != null) {
+        if (dead.getKiller() != null && dead.getKiller() != dead) {
             double health = dead.getKiller().getHealth();
             BigDecimal d = new BigDecimal(health);
 
@@ -53,7 +52,7 @@ public class MatchResultAnnounce implements Listener {
         }
 
         FileConfiguration config = YamlConfiguration.loadConfiguration(file);
-        int rating = config.getInt("KitPvP.Rating");
+        int rating = config.getInt("Season.Beta.KitPvP.Rating");
 
         dead.sendMessage(prefix + "§d---------<< あなたのスコア >>---------");
         dead.sendMessage(prefix + "§7キルストリーク: §e" + KitPvPUtil.getStreak(dead));
@@ -61,16 +60,15 @@ public class MatchResultAnnounce implements Listener {
         dead.sendMessage(prefix + "§7最終レーティング: §e" + rating);
         dead.sendMessage(prefix + "§d---------------------------------------");
 
-        if (dead.getKiller() == null) {
-            return;
-        }
-
         // killer側リザルト通知
         // 獲得RPアナウンスと統合
         // dead.getKiller().sendMessage(prefix + "§c" + dead.getName() + " §7を撃破");
 
         // 全体通知
         // レート通知を廃止
+        if (dead.getKiller() == null || dead.getKiller() == dead) {
+            return;
+        }
         dead.sendMessage(prefix + "§7{ §b" + dead.getKiller().getName() + " §7} === [ §6§l" + getWeapon(dead.getKiller()) + "§7 ] ===> { §c§l" + dead.getName() + " §7}");
         dead.getKiller().sendMessage(prefix + "§7{ §b§l" + dead.getKiller().getName() + " §7} === [ §6§l" + getWeapon(dead.getKiller()) + "§7 ] ===> { §c" + dead.getName() + " §7}");
         for (Player players : Bukkit.getServer().getOnlinePlayers()) {
