@@ -21,7 +21,7 @@ public class Main extends JavaPlugin implements Listener {
     public void onEnable() {
         Bukkit.getPluginCommand("Spec").setExecutor(new Spec());
 
-        Bukkit.getPluginManager().registerEvents(new KitMenu(), this);
+        Bukkit.getPluginManager().registerEvents(new KitMenu(this), this);
         Bukkit.getPluginManager().registerEvents(new KitPurchaseMenu(), this);
 
         Bukkit.getPluginManager().registerEvents(new ContentsClickListener(), this);
