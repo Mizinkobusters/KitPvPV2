@@ -29,7 +29,7 @@ public class MatchResultAnnounce implements Listener {
             return;
         }
 
-        Plugin plugin = Bukkit.getPluginManager().getPlugin("LeafPvPLogger");
+        Plugin plugin = Bukkit.getPluginManager().getPlugin("AsterPvPLogger");
 
         String uuid = dead.getUniqueId().toString();
         File file = new File(plugin.getDataFolder().getPath() + File.separator + uuid + ".yml");

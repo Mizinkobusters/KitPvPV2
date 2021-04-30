@@ -24,6 +24,12 @@ public class Spec implements CommandExecutor {
         if (!KitPvPUtil.isInWorld(player)) {
             return true;
         }
+        if (!KitPvPUtil.hasKit(player)) {
+            return true;
+        }
+        if (!player.getGameMode().equals(GameMode.SPECTATOR)) {
+            return true;
+        }
         player.setGameMode(GameMode.ADVENTURE);
         player.teleport(new Location((player.getWorld()), 0.5, 11.0, 0.5, 0, 0));
         player.sendMessage("§f[§dKitPvP§f] §a観戦モードを解除しました");
