@@ -1,7 +1,6 @@
 package mb.mizinkobusters.kitpvp.kit;
 
 import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
-import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -29,6 +28,5 @@ public class Revive implements Listener {
         killer.sendMessage("§cこのKitではキル時にHPが全快しません");
         killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 1200, 1));
         killer.sendMessage("§7Skill Trigger: §6Revive");
-        killer.setHealth(killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
     }
 }
