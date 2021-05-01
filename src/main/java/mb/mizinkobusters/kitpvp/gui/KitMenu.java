@@ -101,8 +101,8 @@ public class KitMenu implements Listener, InventoryProvider {
                     player.sendMessage(prefix + "§aAstronaut Kitを選択しました");
                 }));
         invContents.add(ClickableItem.of(
-                ItemUtil.createItem(
-                        new ItemStack(Material.POTION, 1, (short) 16393),
+                ItemUtil.createPotion(
+                        new ItemStack(Material.SPLASH_POTION),
                         "§f§lBerserker Kitを選択する",
                         Arrays.asList("§5Absolute §7/ §c購入Kit",
                                 "",
@@ -115,7 +115,8 @@ public class KitMenu implements Listener, InventoryProvider {
                                 "§f特殊: 弱体化I",
                                 "§f特殊: キルをすると弱体化の効果が消え,",
                                 "§f攻撃力上昇I, 衝撃吸収I, 移動速度上昇Iの効果が30秒間付与される",
-                                "§c特殊: キル時に金のリンゴを獲得できない")),
+                                "§c特殊: キル時に金のリンゴを獲得できない"),
+                        PotionEffectType.HARM),
                 e -> {
                     optimizeInventory(player);
                     new ArmorGiver(player, Material.IRON_HELMET, Material.IRON_CHESTPLATE, Material.CHAINMAIL_LEGGINGS, Material.IRON_BOOTS).equip();
@@ -212,6 +213,8 @@ public class KitMenu implements Listener, InventoryProvider {
 
                     ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS);
                     boots.addEnchantment(Enchantment.DURABILITY, 1);
+
+                    optimizeInventory(player);
                     player.getInventory().setHelmet(helmet);
                     player.getInventory().setChestplate(chest);
                     player.getInventory().setLeggings(leg);
@@ -360,7 +363,7 @@ public class KitMenu implements Listener, InventoryProvider {
         invContents.add(ClickableItem.of(
                 ItemUtil.createItem(
                         new ItemStack(Material.POTION, 1, (short) 16389),
-                        "§f§lHealthBoost Kitを選択する",
+                        "§f§lPotionHandler Kitを選択する",
                         Arrays.asList("§dManiac §7/ §b一般Kit",
                                 "",
                                 "§f頭: チェーン",
@@ -438,8 +441,8 @@ public class KitMenu implements Listener, InventoryProvider {
                 }));
         invContents.add(ClickableItem.of(
                 ItemUtil.createItem(
-                        new ItemStack(Material.LONG_GRASS),
-                        "§f§lRevive Kitを選択する",
+                        new ItemStack(Material.LONG_GRASS, 1, (short) 1),
+                        "§f§lSniper Kitを選択する",
                         Arrays.asList("§dTechnical §7/ §c購入Kit",
                                 "",
                                 "§f頭: チェーン",
