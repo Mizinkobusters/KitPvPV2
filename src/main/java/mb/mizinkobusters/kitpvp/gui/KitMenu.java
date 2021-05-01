@@ -504,19 +504,18 @@ public class KitMenu implements Listener, InventoryProvider {
                                 "§f胴: ダイヤ",
                                 "§f腰: ダイヤ",
                                 "§f脚: ダイヤ",
-                                "§f武器: 木の剣[ダメージ増加I]",
+                                "§f武器: 木の剣",
                                 "§f補助: 金のリンゴ×2",
-                                "§f特殊: 移動速度低下I")),
+                                "§f特殊: 移動速度低下III")),
                 e -> {
                     optimizeInventory(player);
                     new ArmorGiver(player, Material.DIAMOND_HELMET, Material.DIAMOND_CHESTPLATE, Material.DIAMOND_LEGGINGS, Material.DIAMOND_BOOTS).equip();
 
                     ItemStack sword = new ItemStack(Material.WOOD_SWORD);
-                    sword.addEnchantment(Enchantment.DAMAGE_ALL, 1);
                     player.getInventory().addItem(sword);
                     player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 2));
 
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 1000000, 0, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 1000000, 2, false, false));
 
                     KitPvPUtil.setKit(player, "Tank");
                     player.sendMessage(prefix + "§aTank Kitを選択しました");
