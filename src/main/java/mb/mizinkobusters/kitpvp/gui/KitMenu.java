@@ -124,7 +124,7 @@ public class KitMenu implements Listener, InventoryProvider {
                     player.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
                     player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE, 2));
 
-                    player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 1000000, 2, false, false));
+                    player.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 1000000, 0, false, false));
 
                     KitPvPUtil.setKit(player, "Berserker");
                     player.sendMessage(prefix + "§aBerserker Kitを選択しました");
