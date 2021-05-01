@@ -26,6 +26,7 @@ public class Revive implements Listener {
         }
         killer.sendMessage("§cこのKitではキル時に金のリンゴを獲得できません");
         killer.sendMessage("§cこのKitではキル時にHPが全快しません");
+        killer.removePotionEffect(PotionEffectType.REGENERATION);
         killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 1200, 1));
         killer.sendMessage("§7Skill Trigger: §6Revive");
     }
