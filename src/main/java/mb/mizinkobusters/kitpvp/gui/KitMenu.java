@@ -146,7 +146,7 @@ public class KitMenu implements Listener, InventoryProvider {
                     optimizeInventory(player);
                     new ArmorGiver(player, Material.DIAMOND_HELMET, Material.CHAINMAIL_CHESTPLATE, Material.CHAINMAIL_LEGGINGS, Material.DIAMOND_BOOTS).equip();
 
-                    player.getInventory().addItem(new ItemStack(Material.IRON_SWORD));
+                    player.getInventory().addItem(new ItemStack(Material.DIAMOND_SWORD));
                     player.getInventory().addItem(new ItemStack(Material.GOLDEN_APPLE));
 
                     KitPvPUtil.setKit(player, "Blizzard");

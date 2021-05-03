@@ -16,6 +16,9 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.util.HashMap;
+import java.util.UUID;
+
 public class PlayerRespawnListener implements Listener {
 
     private JavaPlugin plugin;
@@ -25,6 +28,7 @@ public class PlayerRespawnListener implements Listener {
     }
 
     private String prefix = "§f[§dKitPvP§f] ";
+    private HashMap<UUID, Long> cooldown = new HashMap<>();
 
     @EventHandler
     public void onSneak(PlayerToggleSneakEvent event) {
@@ -44,6 +48,11 @@ public class PlayerRespawnListener implements Listener {
 
         if (event.isSneaking()
                 && !player.hasMetadata("respawning")) {
+            if (cooldown.getOrDefault(player.getUniqueId(), 0L) + 1000L > System.currentTimeMillis()) {
+                return;
+            }
+            cooldown.put(player.getUniqueId(), System.currentTimeMillis());
+
             player.setMetadata("respawning", new FixedMetadataValue(plugin, this));
             player.sendMessage(prefix + "§aリスポーンを申請しました");
             player.sendMessage(prefix + "§e8秒間§7その場から動かないでください...");

@@ -45,6 +45,9 @@ public class Fisherman implements Listener {
         if (event.getState().equals(PlayerFishEvent.State.CAUGHT_ENTITY)
                 && event.getCaught().getType().equals(EntityType.PLAYER)) {
             Player caught = (Player) event.getCaught();
+            if (!KitPvPUtil.hasKit(caught)) {
+                return;
+            }
             World world = Bukkit.getWorld(player.getWorld().getName());
             double x = (player.getLocation().getX() + caught.getLocation().getX()) / 2;
             double y = (player.getLocation().getY() + caught.getLocation().getY()) / 2;

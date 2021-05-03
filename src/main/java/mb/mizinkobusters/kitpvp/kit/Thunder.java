@@ -43,6 +43,9 @@ public class Thunder implements Listener {
 		if (!KitPvPUtil.isInWorld(damagee)) {
 			return;
 		}
+		if (!KitPvPUtil.hasKit(damagee)) {
+			return;
+		}
 
 		if (!(event.getDamager().getType().equals(EntityType.PLAYER))) {
 			return;

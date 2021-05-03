@@ -24,7 +24,7 @@ public class Spec implements CommandExecutor {
         if (!KitPvPUtil.isInWorld(player)) {
             return true;
         }
-        if (!KitPvPUtil.hasKit(player)) {
+        if (KitPvPUtil.hasKit(player)) {
             return true;
         }
         if (!player.getGameMode().equals(GameMode.SPECTATOR)) {

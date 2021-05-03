@@ -1,7 +1,7 @@
 package mb.mizinkobusters.kitpvp.kit;
 
 import mb.mizinkobusters.kitpvp.utils.KitPvPUtil;
-import org.bukkit.attribute.Attribute;
+import mb.mizinkobusters.kitpvp.utils.PlayerUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -26,11 +26,14 @@ public class Berserker implements Listener {
             return;
         }
 
-        if (player.hasPotionEffect(PotionEffectType.WEAKNESS)) {
-            player.removePotionEffect(PotionEffectType.WEAKNESS);
+        if (killer.hasPotionEffect(PotionEffectType.WEAKNESS)) {
+            killer.removePotionEffect(PotionEffectType.WEAKNESS);
         }
         killer.sendMessage("§cこのKitではキル時に金のリンゴを獲得できません");
-        killer.setHealth(killer.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+        PlayerUtil.heal(killer);
+        killer.removePotionEffect(PotionEffectType.INCREASE_DAMAGE);
+        killer.removePotionEffect(PotionEffectType.ABSORPTION);
+        killer.removePotionEffect(PotionEffectType.SPEED);
         killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 600, 0, false, false));
         killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 600, 0, false, false));
         killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 600, 0, false, false));
